@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone Full Advanced</title>
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+        body{background:#000;color:#fff}
+
+        /* HEADER */
+        .header{height:100vh;background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url('https://tse4.mm.bing.net/th/id/OIP.gouaFJ9PEyQa9S1fUQM5mQHaEK?pid=Api&P=0&h=180');background-size:cover;background-position:center;padding:20px 8%;position:relative}
+        nav{display:flex;justify-content:space-between;align-items:center}
+        .logo{width:150px}
+        nav .right{display:flex;gap:10px}
+        nav button{background:#e50914;color:#fff;border:none;padding:7px 15px;border-radius:4px;cursor:pointer;font-weight:600}
+        .language-btn{background:transparent;border:1px solid #aaa}
+
+        .header-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;max-width:800px}
+        .header-content h1{font-size:64px;font-weight:700}
+        .header-content h3{margin:20px 0;font-weight:400}
+
+        .email-signup{margin-top:20px;display:flex;background:#fff;border-radius:4px;overflow:hidden}
+        .email-signup input{flex:1;padding:15px;border:none;font-size:16px}
+        .email-signup button{background:#e50914;color:#fff;border:none;padding:15px 25px;font-size:18px}
+
+        /* FEATURES */
+        .features{border-top:8px solid #222}
+        .row{display:flex;align-items:center;padding:60px 8%;gap:40px}
+        .row:nth-child(even){flex-direction:row-reverse}
+        .text-col{flex:1}
+        .img-col{flex:1}
+        .img-col img{width:100%}
+        .text-col h2{font-size:48px;margin-bottom:20px}
+        .text-col p{font-size:20px;color:#ccc}
+
+        /* MOVIE SLIDER */
+        .movies{padding:40px 8%;border-top:8px solid #222}
+        .movies h2{margin-bottom:20px}
+        .slider{display:flex;overflow-x:auto;gap:10px}
+        .slider img{width:200px;border-radius:6px;transition:0.3s;cursor:pointer}
+        .slider img:hover{transform:scale(1.1)}
+
+        /* FAQ */
+        .faq{border-top:8px solid #222;padding:60px 8%;text-align:center}
+        .faq h2{font-size:40px;margin-bottom:30px}
+        .accordion{max-width:800px;margin:auto}
+        .accordion li{list-style:none;margin-bottom:10px}
+        .accordion label{display:block;padding:20px;background:#303030;cursor:pointer;font-size:20px;position:relative}
+        .accordion label::after{content:'+';position:absolute;right:20px;font-size:30px}
+        .accordion .content{max-height:0;overflow:hidden;background:#303030;text-align:left;transition:.4s;padding:0 20px}
+
+        /* FOOTER */
+        .footer{border-top:8px solid #222;padding:40px 8%;color:#777}
+        .footer .row{display:flex;flex-wrap:wrap}
+        .footer .col{flex:1 1 200px;margin-bottom:20px}
+        .footer a{display:block;color:#777;margin:5px 0;text-decoration:none}
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+        .header-content h1{font-size:32px}
+        .row{flex-direction:column}
+        .slider img{width:140px}
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <nav>
+        <img src="https://tse1.mm.bing.net/th/id/OIF.hcRrfuG6FhmrWDZXaZmh0g?pid=Api&P=0&h=180" class="logo">
+        <div class="right">
+            <button class="language-btn">English</button>
+            <button>Sign In</button>
+        </div>
+    </nav>
+
+    <div class="header-content">
+        <h1>Unlimited movies, TV shows and more.</h1>
+        <h3>Watch anywhere. Cancel anytime.</h3>
+        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+
+        <form class="email-signup" onsubmit="return false;">
+            <input type="email" placeholder="Email address">
+            <button>Get Started ></button>
+        </form>
+
+    </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+    <div class="row">
+        <div class="text-col">
+            <h2>Enjoy on your TV.</h2>
+            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+        </div>
+        <div class="img-col"><img src="https://tse1.mm.bing.net/th/id/OIP.VPUEi-H3b9L7FuGtrBB4fwHaEF?pid=Api&P=0&h=180"></div>
+    </div>
+
+    <div class="row">
+        <div class="text-col">
+            <h2>Download your shows to watch offline.</h2>
+            <p>Save your favourites easily and always have something to watch.</p>
+        </div>
+        <div class="img-col"><img src="https://tse3.mm.bing.net/th/id/OIP.HMmq67WeXPRgLX8JE4-KlAHaEK?pid=Api&P=0&h=180"></div>
+    </div>
+
+    <div class="row">
+        <div class="text-col">
+            <h2>Watch everywhere.</h2>
+            <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+        </div>
+        <div class="img-col"><img src="https://tse3.mm.bing.net/th/id/OIP.lq17VjA4PuLxdEw8gk6afwHaGY?pid=Api&P=0&h=180"></div>
+    </div>
+
+    <div class="row">
+        <div class="img-col"><img src="https://tse4.mm.bing.net/th/id/OIF.XRPEhOv5bSipI9X3LSC2PQ?pid=Api&P=0&h=180"></div>
+        <div class="text-col">
+            <h2>Create profiles for children.</h2>
+            <p>Send children on adventures with their favourite characters.</p>
+        </div>
+    </div>
+</div>
+
+<!-- VIDEO PLAYER -->
+<div id="player" style="display:none;">
+    <video controls id="videoPlayer" width="100%"></video>
+</div>
+
+<!-- API SLIDER -->
+<div class="movies">
+    <h2>Top Rated</h2>
+    <div class="slider" id="topRated"></div>
+</div>
+
+<!-- STATIC SLIDER -->
+<div class="movies">
+    <h2>Trending Now</h2>
+    <div class="slider">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.hE4v23hkHvnDEZGqJG5lEAHaEK?pid=Api&P=0&h=180">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.XQSJcoZoib3B7KTKkRfuCwHaD6?pid=Api&P=0&h=180">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.6TrF7ztKL0DAodFUvRraHQHaDt?pid=Api&P=0&h=180">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.0hB0rKrWtN9GxmgWCI44qAHaEK?pid=Api&P=0&h=180">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.lPdQhOz6L3d0tFC0ChZGlAHaEK?pid=Api&P=0&h=180">
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <ul class="accordion">
+        <li><label>What is Netflix?</label><div class="content">Netflix is a streaming service.</div></li>
+        <li><label>How much does Netflix cost?</label><div class="content">Plans vary.</div></li>
+        <li><label>Where can I watch?</label><div class="content">Anywhere.</div></li>
+        <li><label>How do I cancel?</label><div class="content">Cancel anytime.</div></li>
+    </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <h3>Questions? Call 000-000-000</h3>
+    <div class="row">
+        <div class="col">
+            <a href="#">FAQ</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="col">
+            <a href="#">Help Center</a>
+            <a href="#">Jobs</a>
+            <a href="#">Legal</a>
+        </div>
+    </div>
+    <p>Netflix India</p>
+</div>
+
+    <style>
+        .header{
+            height:100vh;
+            background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+            url('https://tse4.mm.bing.net/th/id/OIP.gouaFJ9PEyQa9S1fUQM5mQHaEK?pid=Api&P=0&h=180');
+            background-size:cover;
+            background-position:center;
+            padding:20px 8%;
+            position:relative;
+            display:block;   /* important */
+        }
+    </style>
+
+
+
+
+<a href="https://www.netflix.com/in/" target="_blank" class="header">
+</a>
+
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+    // Top Rated Slider
+    const topRated = document.getElementById("topRated");
+
+    const images = [
+    "https://tse2.mm.bing.net/th/id/OIP.hE4v23hkHvnDEZGqJG5lEAHaEK?pid=Api&P=0&h=180",
+    "https://tse2.mm.bing.net/th/id/OIP.XQSJcoZoib3B7KTKkRfuCwHaD6?pid=Api&P=0&h=180",
+    "https://tse3.mm.bing.net/th/id/OIP.6TrF7ztKL0DAodFUvRraHQHaDt?pid=Api&P=0&h=180"
+    ];
+
+    images.forEach(img => {
+    let image = document.createElement("img");
+    image.src = img;
+    topRated.appendChild(image);
+    });
+
+    // FAQ Accordion
+    const labels = document.querySelectorAll(".accordion label");
+
+    labels.forEach(label => {
+    label.addEventListener("click", () => {
+    const content = label.nextElementSibling;
+    content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+    });
+    });
+
+</script>
+
+</body>
+</html>
